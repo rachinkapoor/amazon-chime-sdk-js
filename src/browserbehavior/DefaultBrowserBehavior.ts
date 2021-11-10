@@ -275,13 +275,25 @@ export default class DefaultBrowserBehavior implements BrowserBehavior, Extended
   }
 
   requiresDisablingH264Encoding(): boolean {
-    return this.isIOSSafari() && this.version() === '15.1.0' ;
+  
+    let res = this.isTouchDeviceSafari() && this.version() === '15.1.0';
+    if ( res ) {
+      alert('Fix has been applied!');
+    } else {
+      alert('Fix has NOT been applied!');
+    }
+    
+    return this.isTouchDeviceSafari() && this.version() === '15.1.0';
   }
 
   // These helpers should be kept private to encourage
   // feature detection instead of browser detection.
   private isIOSSafari(): boolean {
     return this.browser.name === 'ios' || this.browser.name === 'ios-webview';
+  }
+  
+  private isTouchDeviceSafari(): boolean {
+    return this.isIOSSafari() || (this.isSafari() && this.isTouchEnabled()); 
   }
 
   private isSafari(): boolean {
@@ -322,5 +334,13 @@ export default class DefaultBrowserBehavior implements BrowserBehavior, Extended
 
   private isUnifiedPlanSupported(): boolean {
     return RTCRtpTransceiver.prototype.hasOwnProperty('currentDirection');
+  }
+  
+  private isTouchEnabled(): boolean {
+    if ( !( "ontouchend" in document ) ) {
+      // It's not a touch device.
+      return false;
+    }
+    return true;
   }
 }
