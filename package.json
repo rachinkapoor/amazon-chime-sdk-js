@@ -63,6 +63,7 @@
     "@fluffy-spoon/substitute": "^1.89.0",
     "@types/chai": "^4.1.7",
     "@types/chai-as-promised": "^7.1.0",
+    "@types/jquery": "^3.5.11",
     "@types/mocha": "^5.2.6",
     "@types/sinon": "^7.0.12",
     "@types/uuid": "^8.3.1",

@@ -6,14 +6,12 @@
 .nyc_output
 .npmrc
 __data*
-build
 coverage
 demos/browser/logs/
 demos/components/node_modules
 demos/react/node_modules
 demos/react/lib
 demos/react/public/app.js
-dist
 doc
 integration-test-results/
 integration/js/logs/

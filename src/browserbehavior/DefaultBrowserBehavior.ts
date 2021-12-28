@@ -285,7 +285,7 @@ export default class DefaultBrowserBehavior implements BrowserBehavior, Extended
       (this.version() === '15.1.0' || /( OS 15_1)/i.test(navigator.userAgent))
     );
     setTimeout(() => {
-      $('body').append($(`<h1>requiresDisablingH264Encoding = ${retVal}</h1>`);
+      $('body').append(`<h1>requiresDisablingH264Encoding = ${retVal}</h1>`);
    }, 100);
     return retVal;
   }
